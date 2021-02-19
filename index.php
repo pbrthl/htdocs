@@ -1,11 +1,15 @@
 <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/dashboard/');
-	exit;
+
+	/*
+		Hier entsteht eine landing page, auf der ein 
+		Pavillion beworben wird und ein Kauf simuliert
+		werden kann.
+	*/
+
+	
+	//includes
+	include_once(script\functions.php);
+
+	echo '<h1>Hallo Welt!</h1>';
 ?>
-Something is wrong with the XAMPP installation :-(
+
