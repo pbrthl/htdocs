@@ -8,8 +8,15 @@
 
 	
 	//includes
-	include_once(script\functions.php);
-
-	echo '<h1>Hallo Welt!</h1>';
+	include_once('script\functions.php');
+	
+	
+	html_header();
+	
+	
+	nav_bar();
+	
+	
+	html_footer();
 ?>
 
