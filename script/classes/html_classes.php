@@ -7,6 +7,8 @@
 	
 	//Abstraktion der Klassen, die hier definiert sind.
 	
+	//TODO: to_html_string robuster machen
+	
 	abstract class html_object {
 		
 		public $id;
@@ -20,12 +22,6 @@
 		
 	}
 	
-	
-	
-
-	
-	
-
 	
 	//Klasse zum Erstellen eines Carousel-Elementes
 	
@@ -109,10 +105,157 @@
 	
 	
 	
+	//... Button
+	
+	class button extends html_object {
+		public $id;
+		public $css_class;
+		public $data_toggle;
+		public $href;
+		public $role;
+		public $aria_expanded;
+		public $aria_controls;
+		public $text;
+		public $toggle_text;
+		public $type;
+		
+		public function to_html_string(){	
+			return 
+				(isset($this->toggle_text) && isset($this->id) && isset($this->text) ? 
+					'
+					<script>
+						$(document).ready(function(){
+						 $(\'#'. $this->id .'\').on(\'click\', function () {
+							  var text=$(\'#'. $this->id .'\').text();
+							  if(text === "'. $this->text .'" || text !== \''. $this->toggle_text .'\'){
+								$(this).html(\''. $this->toggle_text .'\');
+							  } else{
+								$(this).text(\''. $this->toggle_text .'\');
+							 }
+							});
+						});
+					</script>
+					'
+				: '')
+				.'<button 
+				'. (isset($this->id) ? ' id="'. $this->id .'" ' : '') 
+				. (isset($this->css_class) ? ' class="'. $this->css_class .'" ' : '') 
+				. (isset($this->data_toggle) ? ' data-toggle="'. $this->data_toggle .'" ' : '') 
+				. (isset($this->href) ? ' href="#'. $this->href .'" ' : '') 
+				. (isset($this->role) ? ' role="'. $this->role .'" ' : '') 
+				. (isset($this->aria_expanded) ? ' aria-expanded="'. $this->aria_expanded .'" ' : '') 
+				. (isset($this->aria_controls) ? ' aria-controls="'. $this->aria_controls .'" ' : '') 
+				. (isset($this->type) ? ' type="'. $this->type .'" ' : '') 
+				. '>
+					'. $this->text .'
+				</button>';
+			
+			
+		}
+	
+		public function to_html(){
+			return $this->to_html_string();
+		}
+		
+		public static function collapse_control_button
+			($button_value_default, 
+			$button_value_active, 
+			$button_id,  
+			$collapse_id)
+		{
+				
+			$button = new button;
+			$button->id = $button_id;
+			$button->css_class = 'btn btn-primary';
+			$button->data_toggle = 'collapse';
+			$button->href = $collapse_id;
+			$button->role = 'button';
+			$button->aria_expanded = 'false';
+			$button->aria_controls = $collapse_id;
+			$button->text = $button_value_default;
+			$button->toggle_text = $button_value_active;
+			$button->type = 'button';
+			return button;
+			
+		}
+		
+	}
+	
+	class html_link extends html_object {
+		public $id;
+		public $css_class;
+		public $data_toggle;
+		public $href;
+		public $role;
+		public $aria_expanded;
+		public $aria_controls;
+		public $text;
+		public $toggle_text;
+		public $type;
+		
+		public function to_html_string(){	
+			return 
+				(isset($this->toggle_text) && isset($this->id) && isset($this->text) ? 
+					'
+					<script>
+						$(document).ready(function(){
+						 $(\'#'. $this->id .'\').on(\'click\', function () {
+							  var text=$(\'#'. $this->id .'\').text();
+							  if(text === "'. $this->text .'" || text !== \''. $this->toggle_text .'\'){
+								$(this).html(\''. $this->toggle_text .'\');
+							  } else{
+								$(this).text(\''. $this->toggle_text .'\');
+							 }
+							});
+						});
+					</script>
+					'
+				: '')
+				.'<a 
+				'. (isset($this->id) ? ' id="'. $this->id .'" ' : '') 
+				. (isset($this->css_class) ? ' class="'. $this->css_class .'" ' : '') 
+				. (isset($this->data_toggle) ? ' data-toggle="'. $this->data_toggle .'" ' : '') 
+				. (isset($this->href) ? ' href="#'. $this->href .'" ' : '') 
+				. (isset($this->role) ? ' role="'. $this->role .'" ' : '') 
+				. (isset($this->aria_expanded) ? ' aria-expanded="'. $this->aria_expanded .'" ' : '') 
+				. (isset($this->aria_controls) ? ' aria-controls="'. $this->aria_controls .'" ' : '') 
+				. (isset($this->type) ? ' type="'. $this->type .'" ' : '') 
+				. '>
+					'. $this->text .'
+				</a>';
+			
+			
+		}
+	
+		public function to_html(){
+			return $this->to_html_string();
+		}
+		
+		public static function collapse_control_link
+			($link_value_default, 
+			$link_value_active, 
+			$link_id,
+			$collapse_id)
+		{
+			$link = new html_link;
+			$link->id = $link_id;
+			$link->css_class = 'btn btn-primary';
+			$link->data_toggle = 'collapse';
+			$link->href = $collapse_id;
+			$link->role = 'button';
+			$link->aria_expanded = 'false';
+			$link->aria_controls = $collapse_id;
+			$link->text = $link_value_default;
+			$link->toggle_text = $link_value_active;
+			$link->type = 'button';
+			return $link;
+			
+		}
+		
+	}
 	
 	
-	
-	
+
 	
 
 	

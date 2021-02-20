@@ -52,19 +52,25 @@
 	//Bild des Pavillions
 	
 	function pavillion_img(){
+		$expand_control_link = html_link::collapse_control_link('Mehr sehen', 'Weniger sehen', 'bs_button', 'bilderstrecke');
 		$pv_img = new img_card;
 		$pv_img->img_src = 'img\gesamtansicht_blau.jpg';
 		$pv_img->img_id = 'hauptbild_id';
 		$pv_img->id = 'pv_main_img';
-		$pv_img->bodycontent = '<p>'. //=========================================================================In den Zeilen hier drunter giebts was zu tun.
-			collapse_control_html('Mehr sehen', 'Weniger sehen', 'bs_button', 'bilderstrecke')
-			.'</p><div class="collapse" id="bilderstrecke">
+		$pv_img->width = '80%';
+		$pv_img->bodycontent = '
+			<p>'
+				. $expand_control_link->to_html_string()
+			.'</p>
+			<div class="collapse" id="bilderstrecke">
 				<p> 
 					Beispielinhalt 
 				</p>
 				</div>';
 		$pv_img->to_html();
 	}
+
+
 	
 	
 	function liste(){
@@ -79,6 +85,8 @@
 			</ul>
 			';
 	}
+	
+	
 	
 	function randomform(){
 		echo 
