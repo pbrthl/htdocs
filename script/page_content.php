@@ -1,6 +1,12 @@
 <?php
 	/*
-	=============== PAGE CONTENT
+	=============== PAGE CONTENT ===============
+	--------------------------------------------
+	
+	In diesem Skript werden Funktionen definiert, die 
+	jene HTML-Elemente umsetzen, aus denen die 
+	konkrete Landing-Page letztendlich besteht.
+	
 	*/
 	
 	
@@ -53,10 +59,10 @@
 	
 	function pavillion_img(){
 		$expand_control_link = html_link::collapse_control_link
-			('Mehr sehen', 
-			'Weniger sehen', 
-			'bs_button', 
-			'bilderstrecke');
+															('Mehr sehen', 
+															'Weniger sehen', 
+															'bs_button', 
+															'bilderstrecke');
 		$pv_img = new img_card;
 		$pv_img->img_src = 'img\gesamtansicht_blau.jpg';
 		$pv_img->img_id = 'hauptbild_id';

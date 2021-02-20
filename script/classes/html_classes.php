@@ -1,13 +1,19 @@
 <?php 
-	
 	/*
+	==================== Definition Klassen HTML-Generierung ====================
+	-----------------------------------------------------------------------------
+	
 	Klassen, mit deren Hilfe HTML-Elementen Eigenschaften zugewiesen
 	werden können, um sie anschließend zu verwenden.
 	*/
 	
-	//Abstraktion der Klassen, die hier definiert sind.
+		//TODO: to_html_string_funktionen robuster machen
+		//TODO "Weniger sehen", link
 	
-	//TODO: to_html_string robuster machen
+	
+	
+	
+	//Abstraktion aller Klassen, die hier definiert sind.
 	
 	abstract class html_object {
 		
@@ -181,6 +187,8 @@
 		
 	}
 	
+	
+	//.. Link
 	class html_link extends html_object {
 		public $id;
 		public $css_class;
@@ -204,7 +212,7 @@
 							  if(text === "'. $this->text .'" || text !== \''. $this->toggle_text .'\'){
 								$(this).html(\''. $this->toggle_text .'\');
 							  } else{
-								$(this).text(\''. $this->toggle_text .'\');
+								$(this).text(\''. $this->text .'\');
 							 }
 							});
 						});
@@ -255,6 +263,7 @@
 	}
 	
 	
+	//class row
 
 	
 
