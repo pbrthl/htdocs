@@ -2,7 +2,12 @@
 
 
 	
-	// Grundlegende HTML-Eemente
+	/* 
+	===========================GRUNDLEGENDE HTML-ELEMENTE
+	*/
+	
+	
+	
 	function html_header(){
 		
 		echo 
@@ -23,8 +28,154 @@
 	}
 	
 	
+
+
+	/*
+	================LAYOUT========================
+	*/
+
+
+	//Container für das Grid-system
 	
-	//Navbar, die oben auf der Seite angezeigt wird.
+	function container(){
+		echo 
+			'
+				<div class="container">
+			';
+	}
+	
+	function container_fluid(){
+		echo 
+			'
+			<div class="container-fluid">
+			';
+	}
+	
+	function container_end(){
+		echo 
+			'
+			</div>
+			';
+	}
+	
+	//columns und rows für das Grid-system
+	
+	
+	function row(){
+		echo 
+			'
+			<div class="row">
+			';
+	}
+	
+	function row_class($row_class){
+		
+		echo 
+			'
+			<div class="row'. $row_class .'">
+			';
+		
+	}
+	
+	function row_end(){
+		echo 
+			'
+			</div>
+			';
+	}
+	
+	
+	function column(){
+		echo 
+			'
+			<div class="col">
+			';
+	}
+	
+	
+	function col_class($col_class){
+		echo 
+			'
+			<div class="col'. $col_class .'">
+			';
+	}
+	
+	function multi_row_column(){
+		
+		echo 
+			'
+			<div class="w-100"></div>
+			';
+	}
+	
+	
+	function column_end(){
+		echo 
+			'
+			</div>
+			';
+	}
+	
+	
+	
+	/*
+	=========================== HTML-BAUSTEINE
+	*/
+	
+	
+	function img_card_head($img_src, $width){
+		echo 
+			'
+			<div class="card" style="width: '. $width .'%;">
+			  <img class="card-img-top" src="'. $img_src .'" alt="Bild nicht gefunden :-(">
+			  <div class="card-body">
+			';
+	}
+	
+	function card_title($title){
+		echo 
+			'
+			<h5 class="card-title">'. $title .'</h5>	
+			';
+	}
+	
+	function card_subtitle($title){
+		echo 
+			'
+			<h6 class="card-subtitle mb-2 text-muted">'. $title .'</h6>	
+			';
+	}
+	
+	function card_text($card_text){
+		
+		echo 
+			'
+			<p class="card-text">
+				'. $card_text .'
+			</p>	
+			';
+		
+	}
+	
+	function card_end(){
+		echo 
+			'
+				  </div>
+				</div>
+			';
+	}
+	
+	
+	
+	
+	
+	/*
+	=============== PAGE CONTENT
+	*/
+	
+	
+	
+	//Navbar, die oben auf der Page angezeigt wird.
 	
 	function nav_bar(){
 		echo 
@@ -70,102 +221,15 @@
 	
 	//Bild des Pavillions
 	
-	function show_picture(){
-		echo 
-			'
-			<figure class="figure">
-			  <img src="img\gesamtansicht_blau.jpg" class="figure-img img-fluid rounded" alt="Bild des Pavillions, blaue Version.">
-			  <figcaption class="figure-caption">
-			  Der Pavillion. Ich versehe ihn mit einem langen Text. vhjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
+	function pavillion_img(){
+		img_card_head('img\gesamtansicht_blau.jpg', 80);
+		card_text
+			('Der Pavillion. Ich versehe ihn mit einem langen Text. vhjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
 			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
 			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj.qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
-			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj!!
-			  </figcaption>
-			</figure>
-			';
+			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj!!');
+		card_end();	
 	}
-	
-
-
-	/*
-	================LAYOUT========================
-	*/
-
-
-	//Container für das Grid-system
-	
-	function container(){
-		echo 
-			'
-				<div class="container">
-			';
-	}
-	
-	function container_fluid(){
-		echo 
-			'
-			<div class="container-fluid">
-			';
-	}
-	
-	function container_end(){
-		echo 
-			'
-			</div>
-			';
-	}
-	
-	//columns und rows für das Grid-system
-	
-	
-	function row(){
-		echo 
-			'
-			<div class="row">
-			';
-	}
-	
-	function row_end(){
-		echo 
-			'
-			</div>
-			';
-	}
-	
-	
-	function column(){
-		echo 
-			'
-			<div class="col">
-			';
-	}
-	
-	
-	function col_width($row_width){
-		echo 
-			'
-			<div class="col-'. $row_width .'">
-			';
-	}
-	
-	function multi_row_column(){
-		
-		echo 
-			'
-			<div class="w-100"></div>
-			';
-	}
-	
-	
-	function column_end(){
-		echo 
-			'
-			</div>
-			';
-	}
-	
-	
-	
 
 
 

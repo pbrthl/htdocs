@@ -13,9 +13,19 @@
 	
 	html_header();
 	nav_bar();
+	container_fluid();
 	
-	show_picture();
+	row();
+		column();
+		
+			pavillion_img();
+			
+		column_end();
+		column();
+		column_end();
+	row_end();
 	
+	container_end();
 	html_footer();
 ?>
 
