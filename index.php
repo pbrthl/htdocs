@@ -12,10 +12,9 @@
 	
 	
 	html_header();
-	
-	
 	nav_bar();
 	
+	show_picture();
 	
 	html_footer();
 ?>

@@ -2,7 +2,7 @@
 
 
 	
-	
+	// Grundlegende HTML-Eemente
 	function html_header(){
 		
 		echo 
@@ -21,6 +21,10 @@
 			'</body>
 			</html>';
 	}
+	
+	
+	
+	//Navbar, die oben auf der Seite angezeigt wird.
 	
 	function nav_bar(){
 		echo 
@@ -62,6 +66,105 @@
 			</nav>
 			';
 	}
+	
+	
+	//Bild des Pavillions
+	
+	function show_picture(){
+		echo 
+			'
+			<figure class="figure">
+			  <img src="img\gesamtansicht_blau.jpg" class="figure-img img-fluid rounded" alt="Bild des Pavillions, blaue Version.">
+			  <figcaption class="figure-caption">
+			  Der Pavillion. Ich versehe ihn mit einem langen Text. vhjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
+			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
+			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj.qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
+			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj!!
+			  </figcaption>
+			</figure>
+			';
+	}
+	
+
+
+	/*
+	================LAYOUT========================
+	*/
+
+
+	//Container für das Grid-system
+	
+	function container(){
+		echo 
+			'
+				<div class="container">
+			';
+	}
+	
+	function container_fluid(){
+		echo 
+			'
+			<div class="container-fluid">
+			';
+	}
+	
+	function container_end(){
+		echo 
+			'
+			</div>
+			';
+	}
+	
+	//columns und rows für das Grid-system
+	
+	
+	function row(){
+		echo 
+			'
+			<div class="row">
+			';
+	}
+	
+	function row_end(){
+		echo 
+			'
+			</div>
+			';
+	}
+	
+	
+	function column(){
+		echo 
+			'
+			<div class="col">
+			';
+	}
+	
+	
+	function col_width($row_width){
+		echo 
+			'
+			<div class="col-'. $row_width .'">
+			';
+	}
+	
+	function multi_row_column(){
+		
+		echo 
+			'
+			<div class="w-100"></div>
+			';
+	}
+	
+	
+	function column_end(){
+		echo 
+			'
+			</div>
+			';
+	}
+	
+	
 	
 
 
