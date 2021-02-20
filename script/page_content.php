@@ -54,13 +54,13 @@
 	function pavillion_img(){
 		img_card_head('img\gesamtansicht_blau.jpg', 80);
 		
-		/*
+		
 		echo '<p>';
-			collapse_control('Mehr sehen', 'bilderstrecke');
+			collapse_control('Mehr sehen', 'Weniger sehen', 'bs_button', 'bilderstrecke');
 		echo '</p>';
 		collapsefield('bilderstrecke');
 			echo '<p> Beispielinhalt </p>';
-		collapsefield_end();*/
+		collapsefield_end();
 		card_end();	
 	}
 	
@@ -99,6 +99,7 @@
 			</form>
 			';
 	}
+	
 	
 
 ?>

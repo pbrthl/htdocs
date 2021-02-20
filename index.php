@@ -20,7 +20,6 @@
 	
 	row();
 		column_class('-sm-6');
-		
 			pavillion_img();
 			
 		column_end();
@@ -37,6 +36,12 @@
 				column_end();
 			row_end();
 		
+		column_end();
+	row_end();
+	
+	row();
+		column();
+			//=====================================TESTING AREA
 		column_end();
 	row_end();
 	

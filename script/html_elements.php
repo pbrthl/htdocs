@@ -50,14 +50,34 @@
 	
 	
 	
-	function collapse_control($button_value, $collapse_id){
+	function collapse_control($button_value_default, $button_value_active, $button_id,  $collapse_id){
 		echo 
 			'
-			  <a class="btn btn-primary" data-toggle="collapse" href="#'. $collapse_id .'" role="button" aria-expanded="false" aria-controls="'. $collapse_id .'">
-				'. $button_value .'
+			
+			<script>
+			
+				$(document).ready(function(){
+				 $(\'#'. $button_id .'\').on(\'click\', function () {
+					  var text=$(\'#'. $button_id .'\').text();
+					  if(text === "'. $button_value_default .'" || text !== \''. $button_value_active .'\'){
+						$(this).html(\''. $button_value_active .'\');
+					  } else{
+						$(this).text(\''. $button_value_default .'\');
+					 }
+					});
+				});
+			
+			</script>
+			
+			
+			
+			  <a class="btn btn-primary" id="'. $button_id .'" data-toggle="collapse" href="#'. $collapse_id .'" role="button" aria-expanded="false" aria-controls="'. $collapse_id .'">
+				'. $button_value_default .'
 			  </a>
 			';
 	}
+	
+	
 	
 	
 	function collapsefield($id){
