@@ -16,12 +16,24 @@
 	container_fluid();
 	
 	row();
-		column();
+		column_class('-sm-6');
 		
 			pavillion_img();
 			
 		column_end();
-		column();
+		column_class('-sm-6');
+		
+			row();
+				column();
+					liste();
+				column_end();
+			row_end();
+			row();
+				column();
+					randomform();
+				column_end();
+			row_end();
+		
 		column_end();
 	row_end();
 	
