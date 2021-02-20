@@ -50,5 +50,30 @@
 	
 	
 	
+	function collapse_control($button_value, $collapse_id){
+		echo 
+			'
+			  <a class="btn btn-primary" data-toggle="collapse" href="#'. $collapse_id .'" role="button" aria-expanded="false" aria-controls="'. $collapse_id .'">
+				'. $button_value .'
+			  </a>
+			';
+	}
+	
+	
+	function collapsefield($id){
+		echo 
+			'
+			<div class="collapse" id="'. $id .'">
+			';
+	}
+	
+	function collapsefield_end(){
+		echo 
+			'</div>';
+	}
+	
+	
+	
+	
 	
 ?>

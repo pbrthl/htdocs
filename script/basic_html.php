@@ -12,7 +12,8 @@
 			'<html>
 				<header>
 					<link rel="stylesheet" href="css\bootstrap.css">
-					<script src="bootstrap.bundle.js"></script>
+					<script type="text/javascript" src="js\jquery-3.5.1.min.js"></script>
+					<script src="js\bootstrap.js"></script>
 				</header>
 				<body>';
 		
@@ -24,5 +25,15 @@
 			'</body>
 			</html>';
 	}
+	
+	
+	
+	/*
+					<script src="js\bootstrap.bundle.js"></script>
+					<script src="js\bootstrap.bundle.min.js"></script>
+					<script src="js\bootstrap.js"></script>
+					<script src="js\bootstrap.min.js"></script>
+	*/
+	
 
 ?>

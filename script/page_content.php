@@ -53,10 +53,14 @@
 	
 	function pavillion_img(){
 		img_card_head('img\gesamtansicht_blau.jpg', 80);
-		card_text
-			('Der Pavillion. Ich versehe ihn mit einem langen Text. vhjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
-			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
-			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb kb jbj!!');
+		
+		/*
+		echo '<p>';
+			collapse_control('Mehr sehen', 'bilderstrecke');
+		echo '</p>';
+		collapsefield('bilderstrecke');
+			echo '<p> Beispielinhalt </p>';
+		collapsefield_end();*/
 		card_end();	
 	}
 	
@@ -95,6 +99,7 @@
 			</form>
 			';
 	}
+	
 
 ?>
 
