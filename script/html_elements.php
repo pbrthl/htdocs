@@ -53,7 +53,6 @@
 	function collapse_control($button_value_default, $button_value_active, $button_id,  $collapse_id){
 		echo 
 			'
-			
 			<script>
 			
 				$(document).ready(function(){
@@ -68,16 +67,11 @@
 				});
 			
 			</script>
-			
-			
-			
-			  <a class="btn btn-primary" id="'. $button_id .'" data-toggle="collapse" href="#'. $collapse_id .'" role="button" aria-expanded="false" aria-controls="'. $collapse_id .'">
+			<a class="btn btn-primary" id="'. $button_id .'" data-toggle="collapse" href="#'. $collapse_id .'" role="button" aria-expanded="false" aria-controls="'. $collapse_id .'">
 				'. $button_value_default .'
-			  </a>
+			</a>
 			';
 	}
-	
-	
 	
 	
 	function collapsefield($id){
@@ -90,6 +84,39 @@
 	function collapsefield_end(){
 		echo 
 			'</div>';
+	}
+	
+	
+	
+	function carousel($id, $pictures){
+		echo 
+			'
+			<div id="'. $id .'" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+			';
+		$first = true;
+		foreach ($pictures as $picture){
+			echo 
+				'
+				<div class="carousel-item'. ($first ? ' active' : '' ) .'">
+					<img class="d-block w-100" src="'. $picture .'" alt="Bild '. $picture .'">
+				</div>
+				';
+			$first = false;
+		}
+		echo 
+			'
+				  <a class="carousel-control-prev" href="#'. $id .'" style="background-color:powderblue;" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#'. $id .'" style="background-color:powderblue;" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				  </a>
+			  </div>
+			</div>
+			';
 	}
 	
 	

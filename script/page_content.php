@@ -101,6 +101,13 @@
 	}
 	
 	
+	
+	function ctst(){
+		$img_array = array('img\tstimg\jp1.jpg', 'img\tstimg\jp2.jpg', 'img\tstimg\jp3.jpg');
+		carousel(42, $img_array);
+	}
+	
+	
 
 ?>
 

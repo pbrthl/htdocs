@@ -41,7 +41,11 @@
 	
 	row();
 		column();
-			//=====================================TESTING AREA
+		column_end();
+		column();
+			ctst();//=====================================TESTING AREA
+		column_end();
+		column();
 		column_end();
 	row_end();
 	
