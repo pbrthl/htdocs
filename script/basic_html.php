@@ -20,6 +20,8 @@
 	}
 	
 	
+	
+	
 	function html_footer(){
 		echo 
 			'</body>

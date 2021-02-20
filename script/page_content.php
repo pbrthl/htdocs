@@ -51,18 +51,7 @@
 	
 	//Bild des Pavillions
 	
-	function pavillion_img(){/*
-		img_card_head('img\gesamtansicht_blau.jpg', 80);
-		
-		
-		echo '<p>';
-			collapse_control('Mehr sehen', 'Weniger sehen', 'bs_button', 'bilderstrecke');
-		echo '</p>';
-		collapsefield('bilderstrecke');
-			echo '<p> Beispielinhalt </p>';
-		collapsefield_end();
-		card_end();	*/
-		
+	function pavillion_img(){
 		$pv_img = new img_card;
 		$pv_img->img_src = 'img\gesamtansicht_blau.jpg';
 		$pv_img->img_id = 'hauptbild_id';
