@@ -7,11 +7,8 @@
 	*/
 
 	
-	//includes
-	include_once('script\basic_html.php');
-	include_once('script\layout.php');
-	include_once('script\html_elements.php');
-	include_once('script\page_content.php');
+	//PHP-Skripte und Klassen einbinden
+	include_once('script\bundle.php');
 	
 	
 	html_header();

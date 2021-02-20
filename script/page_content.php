@@ -51,7 +51,7 @@
 	
 	//Bild des Pavillions
 	
-	function pavillion_img(){
+	function pavillion_img(){/*
 		img_card_head('img\gesamtansicht_blau.jpg', 80);
 		
 		
@@ -61,7 +61,20 @@
 		collapsefield('bilderstrecke');
 			echo '<p> Beispielinhalt </p>';
 		collapsefield_end();
-		card_end();	
+		card_end();	*/
+		
+		$pv_img = new img_card;
+		$pv_img->img_src = 'img\gesamtansicht_blau.jpg';
+		$pv_img->img_id = 'hauptbild_id';
+		$pv_img->id = 'pv_main_img';
+		$pv_img->bodycontent = '<p>'. //=========================================================================In den Zeilen hier drunter giebts was zu tun.
+			collapse_control_html('Mehr sehen', 'Weniger sehen', 'bs_button', 'bilderstrecke')
+			.'</p><div class="collapse" id="bilderstrecke">
+				<p> 
+					Beispielinhalt 
+				</p>
+				</div>';
+		$pv_img->to_html();
 	}
 	
 	
@@ -104,7 +117,10 @@
 	
 	function ctst(){
 		$img_array = array('img\tstimg\jp1.jpg', 'img\tstimg\jp2.jpg', 'img\tstimg\jp3.jpg');
-		carousel(42, $img_array);
+		$carousel = new Carousel;
+		$carousel->id = 42;
+		$carousel->pictures = $img_array;
+		$carousel->to_html();
 	}
 	
 	
