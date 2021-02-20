@@ -1,176 +1,4 @@
 <?php
-
-
-	
-	/* 
-	===========================GRUNDLEGENDE HTML-ELEMENTE
-	*/
-	
-	
-	
-	function html_header(){
-		
-		echo 
-			'<html>
-				<header>
-					<link rel="stylesheet" href="css\bootstrap.css">
-					<script src="bootstrap.bundle.js"></script>
-				</header>
-				<body>';
-		
-	}
-	
-	
-	function html_footer(){
-		echo 
-			'</body>
-			</html>';
-	}
-	
-	
-
-
-	/*
-	================LAYOUT========================
-	*/
-
-
-	//Container für das Grid-system
-	
-	function container(){
-		echo 
-			'
-				<div class="container">
-			';
-	}
-	
-	function container_fluid(){
-		echo 
-			'
-			<div class="container-fluid">
-			';
-	}
-	
-	function container_end(){
-		echo 
-			'
-			</div>
-			';
-	}
-	
-	//columns und rows für das Grid-system
-	
-	
-	function row(){
-		echo 
-			'
-			<div class="row">
-			';
-	}
-	
-	function row_class($row_class){
-		
-		echo 
-			'
-			<div class="row'. $row_class .'">
-			';
-		
-	}
-	
-	function row_end(){
-		echo 
-			'
-			</div>
-			';
-	}
-	
-	
-	function column(){
-		echo 
-			'
-			<div class="col">
-			';
-	}
-	
-	
-	function column_class($col_class){
-		echo 
-			'
-			<div class="col'. $col_class .'">
-			';
-	}
-	
-	function multi_row_column(){
-		
-		echo 
-			'
-			<div class="w-100"></div>
-			';
-	}
-	
-	
-	function column_end(){
-		echo 
-			'
-			</div>
-			';
-	}
-	
-	
-	
-	/*
-	=========================== HTML-BAUSTEINE
-	*/
-	
-	
-	function img_card_head($img_src, $width){
-		echo 
-			'
-			<div class="card" style="width: '. $width .'%;">
-			  <img class="card-img-top" src="'. $img_src .'" alt="Bild nicht gefunden :-(">
-			  <div class="card-body">
-			';
-	}
-	
-	function card_title($title){
-		echo 
-			'
-			<h5 class="card-title">'. $title .'</h5>	
-			';
-	}
-	
-	function card_subtitle($title){
-		echo 
-			'
-			<h6 class="card-subtitle mb-2 text-muted">'. $title .'</h6>	
-			';
-	}
-	
-	function card_text($card_text){
-		
-		echo 
-			'
-			<p class="card-text">
-				'. $card_text .'
-			</p>	
-			';
-		
-	}
-	
-	function card_end(){
-		echo 
-			'
-				  </div>
-				</div>
-			';
-	}
-	
-	
-	
-	
-	
-	
-	
 	/*
 	=============== PAGE CONTENT
 	*/
@@ -228,8 +56,7 @@
 		card_text
 			('Der Pavillion. Ich versehe ihn mit einem langen Text. vhjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
 			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
-			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj.qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbjqk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj
-			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb jbj!!');
+			  qk jk bobhjbj bhjlbjk bjkb lbjhbjkbhjkb kb jbj!!');
 		card_end();	
 	}
 	
@@ -268,9 +95,6 @@
 			</form>
 			';
 	}
-
-
-
 
 ?>
 

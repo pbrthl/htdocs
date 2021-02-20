@@ -8,7 +8,10 @@
 
 	
 	//includes
-	include_once('script\functions.php');
+	include_once('script\basic_html.php');
+	include_once('script\layout.php');
+	include_once('script\html_elements.php');
+	include_once('script\page_content.php');
 	
 	
 	html_header();
