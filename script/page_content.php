@@ -52,7 +52,11 @@
 	//Bild des Pavillions
 	
 	function pavillion_img(){
-		$expand_control_link = html_link::collapse_control_link('Mehr sehen', 'Weniger sehen', 'bs_button', 'bilderstrecke');
+		$expand_control_link = html_link::collapse_control_link
+			('Mehr sehen', 
+			'Weniger sehen', 
+			'bs_button', 
+			'bilderstrecke');
 		$pv_img = new img_card;
 		$pv_img->img_src = 'img\gesamtansicht_blau.jpg';
 		$pv_img->img_id = 'hauptbild_id';
