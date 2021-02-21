@@ -266,6 +266,35 @@
 										
 		//Land und Telefon
 		
+		$land_dd = dropdown::make_dropdown
+									('land_id', 
+									array
+										('Deutschland', 
+										'Frankreich', 
+										'United Kingdom', 
+										'Nordkorea'), 
+									'form-control');
+									
+		$tele_input = input_elem::mk_input_id
+							('tel', 
+							'form-control', 
+							'tele_id', 
+							true, 
+							'4242/4242');
+							
+		$land_lbl = label::make_lbl('land_id', 'Land');
+		$tele_lbl = label::make_lbl('tele_id', 'Telefonnummer*');
+		
+		$land_col = div::mk_div('col-sm-6 mb-3');
+		$tele_col = div::mk_div('col-sm-6 mb-3');
+		$land_col->add_content(array($land_lbl, $land_dd));
+		$tele_col->add_content(array($tele_lbl, $tele_input));
+		$land_line = div::mk_div_content
+								('form-row', 
+								array
+									($land_col,
+									$tele_col));
+		
 		
 		
 
@@ -287,7 +316,8 @@
 					($name_line, 
 					$mail_line, 
 					$address_line, 
-					$city_line, 
+					$city_line,
+					$land_line,
 					$submit_line));
 
 		

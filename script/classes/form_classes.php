@@ -95,7 +95,6 @@
 		
 	}
 	
-	
 
 
 	//Klasse für Formulare
@@ -163,6 +162,8 @@
 		
 	}
 	
+
+
 	class dd_option extends html_object {
 		
 		public $value;
@@ -182,7 +183,7 @@
 		}
 		
 		public static function make_option($val){
-			$option = new option;
+			$option = new dd_option;
 			$option->value = $val;
 			return $option;
 		}
@@ -200,11 +201,11 @@
 		public function to_html_string(){
 			$html_string = 
 				'
-				<select'. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '' ) .' name="'. $id .'" id="'. $id .'">
+				<select'. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '' ) .' name="'. $this->id .'" id="'. $this->id .'">
 				';
 			if(isset($this->options)){
 				foreach($this->options as $c_opt){
-					$html_string .= c_opt->to_html_string;
+					$html_string .= $c_opt->to_html_string();
 				}
 			}
 			$html_string .= 
@@ -224,24 +225,25 @@
 			if(isset($this->options)){
 				if(is_array($os)){
 					foreach($os as $cur_o){
-						array_push($this->options, $cur_o);
+						array_push($this->options, dd_option::make_option($cur_o));
 					}
 				} else {
-					array_push($this->options, $os);
+					array_push($this->options, dd_option::make_option($os));
 				}
 			} else {
 				if(is_array($os)){
-					$this->options = $os;
+					$this->options = array_map ('dd_option::make_option', $os);
 				} else {
-					$this->options = array($os);
+					$this->options = array(dd_option::make_option($os));
 				}
 			}
 		}
 		
-		public static function make_dropdown($dd_id, $opts){
+		public static function make_dropdown($dd_id, $opts, $dd_class){
 			$ddown = new dropdown;
+			$ddown->css_class = $dd_class;
 			$ddown->id = $dd_id;
-			$ddown->add_options(opts);
+			$ddown->add_options($opts);
 			return $ddown;
 		}
 		
