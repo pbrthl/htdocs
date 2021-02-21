@@ -407,13 +407,17 @@
 
 		
 		//Button Bestätigung 
-		$submit_line = div::mk_div('form-row');
-		$submit_button_column = div::mk_div('col-md-12 mb-3');
+		$outter_column = div::mk_div('col mb-3');
+		$submit_line = div::mk_div('form-row justify-content-md-center');
+		$cancel_button_column = div::mk_div('col mb-3');
+		$submit_button_column = div::mk_div('col mb-3');
+		$cancel_button = html_link::simple_link('btn btn-outline-warning', 'index.php', 'abbrechen');
 		$submit_button = button::form_submit_button();
 		$submit_button->text = 'Bestellen';
-		$submit_button->id = 'form_submit_button_id';
+		$submit_button->id = 'form_submit_button_id'; 
+		$cancel_button_column->add_content($cancel_button);
 		$submit_button_column->add_content($submit_button);
-		$submit_line->add_content($submit_button_column);
+		$submit_line->add_content(array($outter_column, $cancel_button_column, $submit_button_column, $outter_column));
 		
 
 		
