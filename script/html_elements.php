@@ -1,8 +1,11 @@
 <?php 
-	
-	
 	/*
-	=========================== HTML-BAUSTEINE
+	=========================== HTML-BAUSTEINE ===========================
+	----------------------------------------------------------------------
+	
+	Funktionen zum Erzeugen von HTML-Elementen, die immer wieder verwendet
+	werden
+	
 	*/
 	
 	

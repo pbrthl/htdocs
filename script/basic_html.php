@@ -1,10 +1,16 @@
 <?php 
-
 	/* 
-	===========================GRUNDLEGENDE HTML-ELEMENTE
+	================= GRUNDLEGENDE HTML-ELEMENTE =================
+	--------------------------------------------------------------
+	
+	Footer und Header, die immer benötigt werden
+	
 	*/
 	
 	
+	
+	
+	//Generiert den HTML-Header, bindet CSS und Javascript ein
 	
 	function html_header(){
 		
@@ -21,7 +27,7 @@
 	
 	
 	
-	
+	// ..Der footer der Page.
 	function html_footer(){
 		echo 
 			'</body>

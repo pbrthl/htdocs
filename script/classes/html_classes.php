@@ -7,13 +7,9 @@
 	werden können, um sie anschließend zu verwenden.
 	*/
 	
-		//TODO: to_html_string_funktionen robuster machen
-		//TODO "Weniger sehen", link
 	
 	
-	
-	
-	//Abstraktion aller Klassen, die hier definiert sind.
+	//Diese Klasse ist die Abstraktion aller weiteren Klassen, die in diesem definiert sind.
 	
 	abstract class html_object {
 		
@@ -124,6 +120,7 @@
 		public $text;
 		public $toggle_text;
 		public $type;
+		public $disabled;
 		
 		public function to_html_string(){	
 			return 
@@ -146,7 +143,8 @@
 				.'<button 
 				'. (isset($this->id) ? ' id="'. $this->id .'" ' : '') 
 				. (isset($this->css_class) ? ' class="'. $this->css_class .'" ' : '') 
-				. (isset($this->data_toggle) ? ' data-toggle="'. $this->data_toggle .'" ' : '') 
+				. (isset($this->data_toggle) ? ' data-toggle="'. $this->data_toggle .'" ' : '')
+				. (isset($this->disabled) ? ($this->disabled ? ' disabled ' : '') : '')
 				. (isset($this->href) ? ' href="#'. $this->href .'" ' : '') 
 				. (isset($this->role) ? ' role="'. $this->role .'" ' : '') 
 				. (isset($this->aria_expanded) ? ' aria-expanded="'. $this->aria_expanded .'" ' : '') 
@@ -189,6 +187,7 @@
 	
 	
 	//.. Link
+	
 	class html_link extends html_object {
 		public $id;
 		public $css_class;
@@ -263,8 +262,60 @@
 	}
 	
 	
-	//class row
-
+	
+	
+	// .. Die Div-Klasse. Es gibt static functions zum erstellen von Rows, Cols, etc..
+	
+	class div extends html_object {
+		public $id;
+		public $css_class;
+		public $content;
+		public function to_html_string(){
+			$html_string = 
+				'
+				<div'. (isset($this->id) ? ' id="'. $this->id .'"' : '') 
+				. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '') .'>
+				';
+				if(isset($this->content)){
+					foreach($this->content as $curr_content){
+						$html_string .= $curr_content->to_html_string();
+					}
+				}
+				$html_string .= 
+					'
+					</div>
+					';
+		}
+		
+		public function to_html(){
+			echo $this->to_html_string();
+		}
+		
+		public function add_content($cntnt){
+			if(isset($this->content)){
+				array_push( $this->content , $cntnt );
+			} else {
+				$this->content = array($cntnt);
+			}
+		}
+		
+		public function add_classes($classes){
+			if(is_array ($classes)){
+				foreach($classes as $curr_class){
+					$this->css_class .= ' '. $curr_class;
+				}
+			} else {
+				$this->css_class .= $classes;
+			}
+		}
+		
+		
+		public static function mk_div($divclass){
+			$div = new div;
+			$div->css_class = $divclass;
+		}
+		
+	}
 	
 
 	

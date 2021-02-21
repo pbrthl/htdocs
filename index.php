@@ -1,6 +1,7 @@
 <?php
-
 	/*
+		================ LANDING PAGE ================
+		----------------------------------------------
 		Hier entsteht eine landing page, auf der ein 
 		Pavillion beworben wird und ein Kauf simuliert
 		werden kann.
