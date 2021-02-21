@@ -9,7 +9,7 @@
 	
 	
 	
-	//Diese Klasse ist die Abstraktion aller weiteren Klassen, die in diesem definiert sind.
+	//Diese Klasse ist die Abstraktion aller weiteren Klassen, die in diesem Skript definiert sind.
 	
 	abstract class html_object {
 		
@@ -264,7 +264,7 @@
 	
 	
 	
-	// .. Die Div-Klasse. Es gibt static functions zum erstellen von Rows, Cols, etc..
+	// .. Die Div-Klasse.
 	
 	class div extends html_object {
 		public $id;
