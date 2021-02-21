@@ -13,14 +13,14 @@
 	function container(){
 		echo 
 			'
-				<div class="container">
+				<div class="container top-buffer">
 			';
 	}
 	
 	function container_fluid(){
 		echo 
 			'
-			<div class="container-fluid">
+			<div class="container-fluid top-buffer">
 			';
 	}
 	

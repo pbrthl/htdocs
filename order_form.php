@@ -5,31 +5,19 @@
 	
 	include_once('script\bundle.php');
 	html_header();
-	generate_mail();
+	//generate_mail();
 	nav_bar();
-	container();
-	
-	
-	echo 
-		'
-		<span class="align-middle">
-		';
-		
-		order_successfull_message();
+	container_fluid();
 		row();
 			column();
 			column_end();
 			column();
-				pavillion_img();
+				title(4, 'Kauf abschließen');
+				order_form();
 			column_end();
 			column();
 			column_end();
-		row_end();
-	
-	echo 
-		'
-		</span>
-		';
+
 	container_end();
 	html_footer();
 ?>

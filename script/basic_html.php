@@ -18,6 +18,7 @@
 			'<html>
 				<header>
 					<link rel="stylesheet" href="css\bootstrap.css">
+					<link rel="stylesheet" href="css\paulcustom.css">
 					<script type="text/javascript" src="js\jquery-3.5.1.min.js"></script>
 					<script src="js\bootstrap.js"></script>
 					<script src="js\paulcustom.js"></script>

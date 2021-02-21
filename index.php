@@ -14,7 +14,7 @@
 	
 	html_header();
 	nav_bar();
-	container_fluid();
+	container();
 	
 	row();
 		column_class('-sm-6');
@@ -30,7 +30,7 @@
 			row_end();
 			row();
 				column();
-					randomform();
+					order_button();
 				column_end();
 			row_end();
 		
@@ -41,7 +41,7 @@
 		column();
 		column_end();
 		column();
-			order_form();//ctst();//=====================================TESTING AREA
+			//order_form();
 		column_end();
 		column();
 		column_end();

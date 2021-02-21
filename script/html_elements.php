@@ -33,7 +33,16 @@
 	}
 	
 	
-	
+	function title($title_size, $text){
+		echo 
+			'
+			<center class="top-buffer">
+				<h'. $title_size .'>
+					'. $text .'
+				</h'. $title_size .'>
+			</center>
+			';
+	}
 
 	
 ?>

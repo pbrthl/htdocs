@@ -15,7 +15,7 @@
 			'
 			Hallo '. $_POST['first_name_input_id'] .'!
 			Wir haben Deine Bestellung erhalten.
-			Der 3x6 m Faltpavillon PROFESSIONAL Alu 40mm, Seitenteile mit Panoramafenstern in '. strtolower($_POST['color_id']) .'er Farbe wird in den nächsten vier Werktagen geliefert.
+			Der 3x6 m Faltpavillon PROFESSIONAL Alu 40mm, Seitenteile mit Panoramafenstern in '. strtolower($_POST['color_id']) .'er Farbe wird in den nächsten ein bis zwei Werktagen geliefert.
 			
 			Viele Grüße,
 			    Dein TOOLPORT-Team.
