@@ -92,6 +92,14 @@
 			return $html_string;
 		}
 		
+		public function to_html(){
+			
+			echo 
+				$this->to_html_string();
+			
+		}
+		
+		
 		public function add_content($cntnt){
 			if(isset($this->contents)){
 				array_push( $this->contents , $cntnt );

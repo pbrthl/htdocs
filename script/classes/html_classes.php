@@ -121,6 +121,7 @@
 		public $toggle_text;
 		public $type;
 		public $disabled;
+		public $onclick;
 		
 		public function to_html_string(){	
 			return 
@@ -147,6 +148,7 @@
 				. (isset($this->disabled) ? ($this->disabled ? ' disabled ' : '') : '')
 				. (isset($this->href) ? ' href="#'. $this->href .'" ' : '') 
 				. (isset($this->role) ? ' role="'. $this->role .'" ' : '') 
+				. (isset($this->onclick) ? ' onclick="'. $this->onclick .'" ' : '') 
 				. (isset($this->aria_expanded) ? ' aria-expanded="'. $this->aria_expanded .'" ' : '') 
 				. (isset($this->aria_controls) ? ' aria-controls="'. $this->aria_controls .'" ' : '') 
 				. (isset($this->type) ? ' type="'. $this->type .'" ' : '') 
@@ -179,10 +181,17 @@
 			$button->text = $button_value_default;
 			$button->toggle_text = $button_value_active;
 			$button->type = 'button';
-			return button;
+			return $button;
 			
 		}
-		
+	
+
+		public static function form_submit_button(){
+			$submit_button = new button;
+			$submit_button->css_class = 'btn btn-success';
+			return $submit_button;
+		}
+	
 	}
 	
 	
@@ -285,6 +294,7 @@
 					'
 					</div>
 					';
+				return $html_string;
 		}
 		
 		public function to_html(){
@@ -313,12 +323,49 @@
 		public static function mk_div($divclass){
 			$div = new div;
 			$div->css_class = $divclass;
+			return $div;
 		}
 		
 	}
 	
 
 	
+	class center extends html_object {
+		
+		public $content;
+		
+		public function to_html_string(){
+			$html_string = '<center>';
+			if(isset($this->content)){
+				foreach($this->content as $curr_content){
+					$html_string .= $curr_content->to_html_string();
+				}
+			}
+			$html_string .= '</center>';
+			return $html_string;
+		}
+		
+		public function add_content($cntnt){
+			if(isset($this->content)){
+				array_push( $this->content , $cntnt );
+			} else {
+				$this->content = array($cntnt);
+			}
+		}
+		
+		public function add_classes($classes){
+			if(is_array ($classes)){
+				foreach($classes as $curr_class){
+					$this->css_class .= ' '. $curr_class;
+				}
+			} else {
+				$this->css_class .= $classes;
+			}
+		}
+		
+		
+		
+	}
 	
 	
 	

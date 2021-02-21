@@ -134,6 +134,10 @@
 
 	function order_form(){
 		
+		//Das Formular 
+		$form = new html_form;
+		
+		
 		/*
 		TODO
 			-Gast? -> registrieren oder einloggen
@@ -156,10 +160,31 @@
 		
 		
 		
-		//Submit/ zurück Buttons
+		//Submit/ zurück Buttons ====================================================================================================
 		
+		
+		//row und line
 		$submit_line = div::mk_div('form-row');
+		$submit_button_column = div::mk_div('col');
 		
+		//Der Button
+		$submit_button = button::form_submit_button();
+		$submit_button->text = 'Bestellen';
+		$submit_button->id = 'form_submit_button_id';
+		
+		//Centered element
+		$centered_element_submit = new center;
+		
+		//zusammenbauen
+		$centered_element_submit->add_content($submit_button);
+		$submit_button_column->add_content($centered_element_submit);
+		$submit_line->add_content($submit_button_column);
+		$form->add_content($submit_line);
+		
+		
+		
+		//formular ausgeben
+		$form->to_html();
 
 		
 		
