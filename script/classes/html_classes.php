@@ -298,7 +298,21 @@
 		}
 		
 		public function to_html(){
-			echo $this->to_html_string();
+			//echo $this->to_html_string();
+			echo 
+				'
+				<div'. (isset($this->id) ? ' id="'. $this->id .'"' : '') 
+				. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '') .'>
+				';
+				if(isset($this->content)){
+					foreach($this->content as $curr_content){
+						echo $curr_content->to_html();
+					}
+				}
+				echo 
+					'
+					</div>
+					';
 		}
 		
 		public function add_content($cntnt){

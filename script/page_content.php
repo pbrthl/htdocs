@@ -140,19 +140,13 @@
 		
 		/*
 		TODO
-			-Gast? -> registrieren oder einloggen
-			-Mann/Frau/Firma X
-			-Vorname, Nachname (Firma!)X
-			-Email X
-			-Straße, Hausnummer, weitere Angabe (zB im Hinterhaus) X
-			-Ort X
-			-Land 
-			-Telefon 
-			-Rechnungsadresse = Lieferadresse? => Lieferadresse
-			-zurück/weiter
+			-Gast? -> registrieren oder einloggen --
+			- Farbe
+			- AGB Datenschutzerklärung
+			- Versandart
+			-zurück/weiter X
 			--------------------> Zahlung :)
-			
-			Zum Absenden des Formulars ist die Bestätigung der AGB und der Datenschutzerklärung
+
 		*/
 		
 		
@@ -294,10 +288,74 @@
 								array
 									($land_col,
 									$tele_col));
+									
+		//Farbe und Versandart
 		
 		
+		$color_dd = dropdown::make_dropdown
+									('color_id', 
+									array
+										('Rot',
+										'Gelb',
+										'Grün'),
+									'form-control');
+									
+		$color_lbl = label::make_lbl('color_id', 'Farbe');
+		
+		$versand_dd = dropdown::make_dropdown
+									('versand_id', 
+									array
+										('Abholung',
+										'Standardversand'),
+									'form-control');
+									
+		$versand_lbl = label::make_lbl('versand_id', 'Versandart');
 		
 
+		$versand_col = div::mk_div('col-sm-8 mb-3');
+		$color_col = div::mk_div('col-sm-4 mb-3');
+		
+		$versand_col->add_content(array($versand_lbl, $versand_dd));
+		$color_col->add_content(array($color_lbl, $color_dd));
+		
+		$vc_line = div::mk_div_content
+								('form-row', 
+								array
+									($color_col,
+									$versand_col));
+		
+		
+		
+		//Zahlungsmethode und AGB sowie Datenschutzerklärung
+		
+
+		$payment_dd = dropdown::make_dropdown
+										('pay_id', 
+										array
+											('Bezahlung bei Erhalt'),
+										'form-control');
+		$payment_dd->disabled = true;
+		$pay_label = label::make_lbl('pay_id', 'Zahlungsmethode');
+		$pay_col = div::mk_div('col-sm-6 mb-3');
+		$pay_col->add_content(array($pay_label, $payment_dd)); // <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+		
+		$agb_ds_col = html_form::form_col
+										('col-sm-6 mb-3', 
+										'checkbox', 
+										'form-check-input', 
+										'agb_ds_id', 
+										true, 
+										'', 
+										'AGB & Datenschutzerklärung akzeptieren');
+										
+										
+										
+		
+		$agb_ds_line = div::mk_div_content
+								('form-row', 
+								array
+									($pay_col,
+									$agb_ds_col));
 		
 
 		
@@ -318,6 +376,8 @@
 					$address_line, 
 					$city_line,
 					$land_line,
+					$vc_line,
+					$agb_ds_line,
 					$submit_line));
 
 		
