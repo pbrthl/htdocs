@@ -268,7 +268,7 @@
 		{
 			$link = new html_link;
 			$link->id = $link_id;
-			$link->css_class = 'btn btn-primary';
+			$link->css_class = 'link' ;//'btn btn-primary';
 			$link->data_toggle = 'collapse';
 			$link->href = $collapse_id;
 			$link->role = 'button';

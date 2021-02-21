@@ -22,7 +22,8 @@
 			
 			$html_string = 
 				'<input '
-				. (isset($this->id) ? ' id="'. $this->id .'"' : '') 
+				. (isset($this->id) ? ' id="'. $this->id .'"' : '')
+				. (isset($this->id) ? ' name="'. $this->id .'"' : '')				
 				. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '')
 				. (isset($this->type) ? ' type="'. $this->type .'"' : '')
 				. (isset($this->required) ? ($this->required ? ' required' : '') : '')				
@@ -181,6 +182,7 @@
 	}
 	
 
+//..Options für Dropdown-Menüs
 
 	class dd_option extends html_object {
 		
@@ -208,7 +210,7 @@
 		
 	}
 	
-	
+	//..Dropdown-Menü
 	
 	class dropdown extends html_object {
 		

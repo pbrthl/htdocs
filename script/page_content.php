@@ -358,8 +358,8 @@
 		//Datenschutzerklärung optional anzeigen
 									
 		
-		$empty_col = div::mk_div('col-4 mb-3');
-		$button_col = div::mk_div('col-4 mb-3');
+		$empty_col = div::mk_div('col-2 mb-3');
+		$button_col = div::mk_div('col-8 mb-3');
 		$agb_collapse_link = html_link::collapse_control_link
 												('AGB und Datenschutzerklärung anzeigen', 
 												'AGB und Datenschutzerklärung nicht mehr anzeigen', 
