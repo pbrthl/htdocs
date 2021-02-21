@@ -29,6 +29,8 @@
 	
 	class Carousel extends html_object {
 		public $id = '';
+		public $target_picture_id;
+		public $width;
 		public $pictures = array();
 		public function to_html() { 
 				echo $this->to_html_string();
@@ -36,9 +38,21 @@
 		
 		public function to_html_string(){
 			
+			$optional_script = 
+				'
+					<script>
+						
+						function tausch(pic){
+							document.getElementById("'. $target_picture_id .'").setAttribute("src", pic.getAttribute("src"));
+						}
+						
+					</script>
+				';
+			
 			$html_string =
 				'
-				<div id="'. $this->id .'" class="carousel slide" data-ride="carousel">
+				'. (isset($target_picture_id) ? $optional_script : '') .'				
+				<div id="'. $this->id .'" class="carousel slide" data-ride="carousel"'. (isset($this->width) ? ' width="'. $this->width .'"' : '') .'>
 				  <div class="carousel-inner">
 				';
 				$first = true;
@@ -46,7 +60,7 @@
 								$html_string .= 
 									'
 									<div class="carousel-item'. ($first ? ' active' : '' ) .'">
-										<img class="d-block w-100" src="'. $picture .'" alt="Bild '. $picture .'">
+										<img class="d-block w-100" src="'. $picture .'" alt="Bild '. $picture .'"'. (isset($this->target_picture_id) ? ' onclick="tausch(this)"' : '') .'>          
 									</div>
 									';
 								$first = false;
@@ -244,7 +258,7 @@
 				'. (isset($this->id) ? ' id="'. $this->id .'" ' : '') 
 				. (isset($this->css_class) ? ' class="'. $this->css_class .'" ' : '') 
 				. (isset($this->data_toggle) ? ' data-toggle="'. $this->data_toggle .'" ' : '') 
-				. (isset($this->href) ? ' href="#'. $this->href .'" ' : '') 
+				. (isset($this->href) ? ' href="'. (isset($this->toggle_text) ? '#' : '') . $this->href .'" ' : '') 
 				. (isset($this->role) ? ' role="'. $this->role .'" ' : '') 
 				. (isset($this->aria_expanded) ? ' aria-expanded="'. $this->aria_expanded .'" ' : '') 
 				. (isset($this->aria_controls) ? ' aria-controls="'. $this->aria_controls .'" ' : '') 
@@ -291,8 +305,6 @@
 		}
 		
 	}
-	
-	
 	
 	
 	// .. Die Div-Klasse.

@@ -387,11 +387,52 @@
 									
 									
 		$agb_und_datenschutz = new custom_content;
-		$agb_und_datenschutz->content = 
-			'
-			<h1>
-				AGB und Datenschutz
-			</h1>
+		$agb_und_datenschutz->content = 		'
+<p><h5>Allgemeine Geschäftsbedingungen (AGB)</hf><p><br/>
+§ 1 Verwender <br/>
+Als Verwender dieser AGB gilt:
+<br/><br/>
+Modellshop<br/>
+Volker Vorlage<br/>
+Modellstraße 1<br/>
+12345 Modellstadt<br/>
+Registernummer: 7891011<br/>
+Registergericht: Amtsgericht Modellstadt<br/><br/>
+
+§ 2 Geltungsbereich <br/>
+Diese Allgemeinen Geschäftsbedingungen gelten für alle Rechtsgeschäfte zwischen dem Verwender und einem Verbraucher (Gemäß § 13 BGB einer „natürlichen Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können“).
+<br/><br/>
+§ 3 Vertragsschluss und Speicherung des Vertragstextes<br/>
+Die Bestimmungen dieser AGB gelten für Bestellungen, welche Verbraucher über die Website www.modelldomain.de des Onlineshops Modellshop abschließen.<br/>
+<br/>
+Der Vertrag kommt mit dem Verwender (siehe § 1) zustande.<br/>
+<br/>
+Die Vorstellung und Beschreibung der Waren auf der Internetseite des Modellshops www.modelldomain.de stellt kein Vertragsangebot dar.<br/>
+<br/>
+Mit der Bestellung einer Ware durch einen Klick auf den Button „kostenpflichtig bestellen“ am Ende des Bestellvorgangs gibt ein Verbraucher ein verbindliches Angebot auf einen Kaufvertragsabschluss ab. Erst mit dem Versand einer Auftragsbestätigung per E-Mail durch den Verwender kommt der Vertragsschluss zustande.
+<br/><br/>
+Der Vertragstext wird bei Bestellungen gespeichert. Verbraucher erhalten eine E-Mail mit den Bestelldaten und den geltenden AGB. Nach Vertragsschluss sind die Bestelldaten nicht mehr online einsehbar.
+<br/><br/>
+§ 4 Zahlung<br/>
+Die gesetzliche Umsatzsteuer sowie weitere Preisbestandteile sind in den angegebenen Preisen inbegriffen. Versandkosten sind nicht im angezeigten Preis enthalten und können ggf. zusätzlich anfallen.
+Verbrauchern stehen folgende Zahlungsoptionen zur Verfügung:
+<br/><br/>
+Paypal<br/>
+Überweisung<br/>
+Nachnahme<br/>
+<br/><br/>
+§ 5 Lieferung, Lieferungsbeschränkungen<br/>
+Die Lieferung erfolgt – sofern die Beschreibung eines gewählten Produkts nicht explizit Abweichendes festlegt – innerhalb von 7 Werktagen.<br/>
+Diese Frist beginnt im Falle der Zahlung via Überweisung oder Paypal am Tag nach Erteilung des Zahlungsauftrages zu laufen.<br/>
+<br/><br/>
+§ 6 Gefahrenübergang<br/>
+Das Risiko einer zufälligen Verschlechterung oder einem zufälligen Verlust der Ware liegt bis zur Übergabe der Ware beim Verwender und geht es mit der Übergabe auf den Verbraucher über.
+<br/><br/>
+§ 7 Eigentumsvorbehalt<br/>
+Bis zum vollständigen Empfang des Kaufpreises behält sich der Verwender das Eigentum an der Ware vor.
+<br/><br/>
+§ 8 Gewährleistung<br/>
+Die gesetzlichen Gewährleistungsregelungen gelten.
 			';
 		$agb_ds_collapse->add_content($agb_und_datenschutz);
 		$collapse_column =  div::mk_div_content

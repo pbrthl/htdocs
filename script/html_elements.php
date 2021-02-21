@@ -44,5 +44,9 @@
 			';
 	}
 
+
+	function card_block(){
+		
+	}
 	
 ?>
