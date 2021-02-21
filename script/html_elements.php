@@ -27,4 +27,10 @@
 	}
 	
 	
+	function label($input_id, $value){
+		echo 
+			'<label for="'. $input_id .'">'. $value .'</label>';
+	}
+	
+	
 ?>

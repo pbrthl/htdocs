@@ -68,6 +68,7 @@
 		public $css_class;
 		public $action;
 		public $contents;
+		public $method;
 		
 		public function to_html_string(){
 			$html_string =
@@ -76,6 +77,7 @@
 					' . (isset($this->id) ? ' id="'. $this->id .'"' : '')
 					. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '')
 					. (isset($this->action) ? ' action="'. $this->action .'"' : '')
+					. (isset($this->method) ? ' method="'. $this->method .'"' : '')
 					. '>
 				';
 			if(isset($this->contents)){
@@ -97,5 +99,6 @@
 		}
 		
 	}
+
 
 ?>

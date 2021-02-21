@@ -20,6 +20,7 @@
 					<link rel="stylesheet" href="css\bootstrap.css">
 					<script type="text/javascript" src="js\jquery-3.5.1.min.js"></script>
 					<script src="js\bootstrap.js"></script>
+					<script src="js\paulcustom.js"></script>
 				</header>
 				<body>';
 		

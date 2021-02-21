@@ -80,8 +80,6 @@
 		$pv_img->to_html();
 	}
 
-
-	
 	
 	function liste(){
 		echo 
@@ -130,7 +128,39 @@
 		$carousel->to_html();
 	}
 	
-	
+
+
+	//Methode zum Erstellen des Bestell-Formulars
+
+	function order_form(){
+		
+		/*
+		TODO
+			-Gast? -> registrieren oder einloggen
+			-Mann/Frau/Firma
+			-Vorname, Nachname (Firma!)
+			-Email
+			-Straße, Hausnummer, weitere Angabe (zB im Hinterhaus)
+			-Ort
+			-Land
+			-Telefon
+			-Rechnungsadresse = Lieferadresse? => Lieferadresse
+			-zurück/weiter
+			--------------------> Zahlung :)
+		*/
+		
+		
+		//erstellen der ersten Formular-zeile..
+		
+
+		
+		
+
+		
+		
+	}
+
+
 
 ?>
 
