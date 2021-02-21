@@ -337,7 +337,7 @@
 		$payment_dd->disabled = true;
 		$pay_label = label::make_lbl('pay_id', 'Zahlungsmethode');
 		$pay_col = div::mk_div('col-sm-6 mb-3');
-		$pay_col->add_content(array($pay_label, $payment_dd)); // <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+		$pay_col->add_content(array($pay_label, $payment_dd));
 		
 		$agb_ds_col = html_form::form_col
 										('col-sm-6 mb-3', 
@@ -349,13 +349,51 @@
 										'AGB & Datenschutzerklärung akzeptieren');
 										
 										
-										
-		
 		$agb_ds_line = div::mk_div_content
 								('form-row', 
 								array
 									($pay_col,
 									$agb_ds_col));
+									
+		//Datenschutzerklärung optional anzeigen
+									
+		
+		$empty_col = div::mk_div('col-4 mb-3');
+		$button_col = div::mk_div('col-4 mb-3');
+		$agb_collapse_link = html_link::collapse_control_link
+												('AGB und Datenschutzerklärung anzeigen', 
+												'AGB und Datenschutzerklärung nicht mehr anzeigen', 
+												'agb_toggle_button',  
+												'a_d_c');
+		$agb_ds_collapse = div::mk_div('collapse');
+		$agb_ds_collapse->id = 'a_d_c';
+		$button_col->add_content($agb_collapse_link);
+		
+		$toggle_button_row =  div::mk_div_content
+								('form-row', 
+								array
+									($empty_col,
+									$button_col,
+									$empty_col));
+									
+									
+		$agb_und_datenschutz = new custom_content;
+		$agb_und_datenschutz->content = 
+			'
+			<h1>
+				AGB und Datenschutz
+			</h1>
+			';
+		$agb_ds_collapse->add_content($agb_und_datenschutz);
+		$collapse_column =  div::mk_div_content
+							('col-12', 
+							array
+								($agb_ds_collapse));
+		
+		$collapse_row =  div::mk_div_content
+							('form-row', 
+							array
+								($collapse_column));
 		
 
 		
@@ -367,6 +405,10 @@
 		$submit_button->id = 'form_submit_button_id';
 		$submit_button_column->add_content($submit_button);
 		$submit_line->add_content($submit_button_column);
+		
+
+		
+		
 
 		//Formular füllen
 		$form->add_content
@@ -378,6 +420,8 @@
 					$land_line,
 					$vc_line,
 					$agb_ds_line,
+					$toggle_button_row,
+					$collapse_row,
 					$submit_line));
 
 		

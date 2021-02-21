@@ -195,6 +195,19 @@
 	}
 	
 	
+	class custom_content {
+		public $content;
+		
+		public function to_html_string(){
+			return $content;
+		}
+		
+		public function to_html(){
+			echo $this->content;
+		}
+	}
+	
+	
 	//.. Link
 	
 	class html_link extends html_object {
@@ -404,6 +417,7 @@
 		
 		
 	}
+	
 	
 	
 	
