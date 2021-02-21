@@ -19,7 +19,7 @@
 		}
 			
 		public function to_html(){
-			
+			echo $this->to_html_string();
 		}
 		
 	}
@@ -281,6 +281,15 @@
 			
 		}
 		
+		
+		public static function simple_link($classes, $href, $val){
+			$link = new html_link;
+			$link->css_class = $classes;
+			$link->href = $href;
+			$link->text = $val;
+			return $link;
+		}
+		
 	}
 	
 	
@@ -405,13 +414,177 @@
 	}
 	
 	
-	class nav_bar extends html_object {
+	class nav extends html_object {
 		
 		public $content;
 		
-		public function to_html_string(){}
+		public function to_html_string(){
+			$html_string = 
+				'
+					<nav'. (isset($this->css_class) ? ' class="'. $this->css_class.'"' : '') .  (isset($this->id) ? ' id="'. $this->id .'"' : '') .' ">
+				';
+			if(isset($this->content)){
+				foreach($this->content as $curr_content){
+					$html_string .= $curr_content->to_html_string();
+				}
+			}
+			$html_string .=
+				'
+				</nav>
+				';
+			
+			return $html_string;
+		}
+		
+		
+		public function add_content($cntnt)	{
+			if(isset($this->content)){
+				if(is_array($cntnt)){
+					foreach($cntnt as $cur_c){
+						array_push($this->content, $cur_c);
+					}
+				} else {
+					array_push( $this->content , $cntnt );
+				}
+			} else {
+				if(is_array($cntnt)){
+					$this->content = $cntnt;
+				} else {
+					$this->content = array($cntnt);
+				}
+			}
+		}
+		
+		public static function generate_nav($classes){
+			$nav = new nav;
+			$nav->css_class = $classes;
+			return $nav;
+		}
 		
 	}
+	
+	
+	
+	class ul extends html_object {
+		public $content;
+		
+		public function add_content($cntnt)	{
+			if(isset($this->content)){
+				if(is_array($cntnt)){
+					foreach($cntnt as $cur_c){
+						array_push($this->content, $cur_c);
+					}
+				} else {
+					array_push( $this->content , $cntnt );
+				}
+			} else {
+				if(is_array($cntnt)){
+					$this->content = $cntnt;
+				} else {
+					$this->content = array($cntnt);
+				}
+			}
+		}
+		
+		
+		public function to_html_string(){
+			$html_string = 
+				'
+					<ul '.(isset($this->css_class) ? ' class="'. $this->css_class.'"' : '') .  (isset($this->id) ? ' id="'. $this->id .'"' : '') .'>
+				';
+			
+			if(isset($this->content)){
+				foreach($this->content as $curr_content){
+					$html_string .= $curr_content->to_html_string();
+				}
+			}
+			
+			$html_string .= 
+				'
+				</ul>
+				';
+			
+			return $html_string;
+		}
+		
+		public static function simple_ul($classes){
+			$ul = new ul;
+			$ul->css_class = $classes;
+			return $ul;
+		}
+		
+	}
+	
+	
+	class l_i {
+		
+		public $content;
+		
+		
+		public function add_content($cntnt)	{
+			if(isset($this->content)){
+				if(is_array($cntnt)){
+					foreach($cntnt as $cur_c){
+						array_push($this->content, $cur_c);
+					}
+				} else {
+					array_push( $this->content , $cntnt );
+				}
+			} else {
+				if(is_array($cntnt)){
+					$this->content = $cntnt;
+				} else {
+					$this->content = array($cntnt);
+				}
+			}
+		}
+		
+		public function to_html_string(){
+			$html_string = 
+				'
+					<li '.(isset($this->css_class) ? ' class="'. $this->css_class.'"' : '') .  (isset($this->id) ? ' id="'. $this->id .'"' : '') .'>
+				';
+			
+			if(isset($this->content)){
+				foreach($this->content as $curr_content){
+					$html_string .= $curr_content->to_html_string();
+				}
+			}
+			
+			$html_string .= 
+				'
+				</li>
+				';
+			
+			return $html_string;
+		}
+		
+		
+		
+		public static function li_wrap($classes, $cntnt){
+			$li = new l_i;
+			$li->css_class = $classes;
+			$li->add_content($cntnt);
+			return $li;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 ?>

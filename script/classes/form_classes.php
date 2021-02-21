@@ -155,6 +155,12 @@
 			}
 		}
 		
+		public static function simple_form($classes){
+			$form = new form;
+			$form->css_class = $classes;
+			return $form;
+		}
+		
 		public static function form_col($col_class, $input_type, $input_class, $input_id, $required, $p_holder, $label){
 			$inp_e = input_elem::mk_input_id($input_type, $input_class, $input_id, $required, $p_holder);
 			$lbl = label::make_lbl($input_id, $label); 
