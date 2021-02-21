@@ -303,9 +303,19 @@
 		
 		public function add_content($cntnt){
 			if(isset($this->content)){
-				array_push( $this->content , $cntnt );
+				if(is_array($cntnt)){
+					foreach($cntnt as $cur_c){
+						array_push($this->content, $cur_c);
+					}
+				} else {
+					array_push( $this->content , $cntnt );
+				}
 			} else {
-				$this->content = array($cntnt);
+				if(is_array($cntnt)){
+					$this->content = $cntnt;
+				} else {
+					$this->content = array($cntnt);
+				}
 			}
 		}
 		
@@ -323,6 +333,20 @@
 		public static function mk_div($divclass){
 			$div = new div;
 			$div->css_class = $divclass;
+			return $div;
+		}
+		
+		public static function mk_form_col($divclass, $lbl, $inp){
+			$div = new div;
+			$div->css_class = $divclass;
+			$div->add_content(array($lbl, $inp));
+			return $div;
+		}
+		
+		public static function mk_div_content($divclass, $cntnt){
+			$div = new div;
+			$div->css_class = $divclass;
+			$div->add_content($cntnt);
 			return $div;
 		}
 		

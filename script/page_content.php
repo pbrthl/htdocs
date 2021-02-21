@@ -151,21 +151,104 @@
 			-Rechnungsadresse = Lieferadresse? => Lieferadresse
 			-zurück/weiter
 			--------------------> Zahlung :)
+			
+			Zum Absenden des Formulars ist die Bestätigung der AGB und der Datenschutzerklärung
 		*/
 		
 		
-		//erstellen der ersten Formular-zeile..
-		
+		//Vorname und Nachname         ==========================               
+		$first_name_column = html_form::form_col
+							('col-md-6 mb-3', 
+							'text', 
+							'form-control', 
+							'first_name_input_id', 
+							true, 
+							'Max', 
+							'Vorname*');
+		$sur_name_column = html_form::form_col
+									('col-md-6 mb-3', 
+									'text', 
+									'form-control', 
+									'surname_name_input_id', 
+									true, 
+									'Mustermann', 
+									'Nachname*');
+		$name_line = div::mk_div_content
+									('form-row', 
+									array
+										($first_name_column, 
+										$sur_name_column));   
 
 		
 		
+		//email-adresse
 		
-		//Submit/ zurück Buttons ====================================================================================================
+		
+		$email_inp = input_elem::mk_input_id('email', 'form-control', 'email_input_id', true, 'max@mustermail.com');
+		$email_lbl = label::make_lbl('email_input_id', 'Mail*');
+		$mail_column = div::mk_div('col-md-12 mb-3');
+		$mail_line = div::mk_div('form-row');
+		$mail_column->add_content($email_lbl);
+		$mail_column->add_content($email_inp);
+		$mail_line->add_content($mail_column);
+		
+		
+		//Straße und Hausnummer
+		
+		
+		$address_line = div::mk_div('form-row');
+		$street_column = div::mk_div('col-8 mb-3');
+		$number_column = div::mk_div('col-4 mb-3');
+		$street_input = input_elem::mk_input_id('text', 'form-control', 'street_input_id', true, 'Musterstraße');
+		$number_input = input_elem::mk_input_id('text', 'form-control', 'number_input_id', true, '9a');
+		$street_lbl = label::make_lbl('street_input_id', 'Straße*');
+		$number_lbl = label::make_lbl('number_input_id', 'Hausnummer*');
+		
+		//zusammenfügen
+		$street_column->add_content($street_lbl);
+		$street_column->add_content($street_input);
+		$number_column->add_content($number_lbl);
+		$number_column->add_content($number_input);
+		$address_line->add_content($street_column);
+		$address_line->add_content($number_column);
+		
+		//Adresszusatz, Stadt, PLZ
+		
+		$city_line = div::mk_div('form-row');
+		$zstz_col = div::mk_div('col-sm-5 mb-3');
+		$city_col = div::mk_div('col-sm-4 mb-3');
+		$plz_col = div::mk_div('col-sm-3 mb-3');
+		
+		$zstz_input = input_elem::mk_input_id('text', 'form-control', 'zstz_i_id', false, 'zB. Hinterhaus');
+		$zstz_lbl = label::make_lbl('z_i_id', 'Adresszusatz');
+		$city_input = input_elem::mk_input_id('text', 'form-control', 'ct_i_id', true, 'Musterstadt');
+		$city_lbl = label::make_lbl('ct_i_id', 'Stadt*');
+		$plz_input = input_elem::mk_input_id('text', 'form-control', 'plz_i_id', true, '4242');
+		$plz_lbl = label::make_lbl('plz_i_id', 'Postleitzahl*');
+		
+		
+		$zstz_col->add_content($zstz_lbl);
+		$zstz_col->add_content($zstz_input);
+		$city_col->add_content($city_lbl);
+		$city_col->add_content($city_input);
+		$plz_col->add_content($plz_lbl);
+		$plz_col->add_content($plz_input);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Submit/ zurück Buttons 
 		
 		
 		//row und line
 		$submit_line = div::mk_div('form-row');
-		$submit_button_column = div::mk_div('col');
+		$submit_button_column = div::mk_div('col-md-12 mb-3');
 		
 		//Der Button
 		$submit_button = button::form_submit_button();
@@ -173,13 +256,20 @@
 		$submit_button->id = 'form_submit_button_id';
 		
 		//Centered element
-		$centered_element_submit = new center;
+		//$centered_element_submit = new center;
 		
-		//zusammenbauen
-		$centered_element_submit->add_content($submit_button);
-		$submit_button_column->add_content($centered_element_submit);
+		//zusammenbauen der Zeile
+		$submit_button_column->add_content($submit_button);
 		$submit_line->add_content($submit_button_column);
-		$form->add_content($submit_line);
+		
+		
+		
+		
+		
+		
+		//Formular füllen
+		$form->add_content(array($name_line, $mail_line, $address_line, $submit_line));
+
 		
 		
 		

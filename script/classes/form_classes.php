@@ -24,9 +24,11 @@
 				'<input '
 				. (isset($this->id) ? ' id="'. $this->id .'"' : '') 
 				. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '')
-				. (isset($this->type) ? ' type="'. $this->type .'"' : '') 
+				. (isset($this->type) ? ' type="'. $this->type .'"' : '')
+				. (isset($this->required) ? ($this->required ? ' required' : '') : '')				
 				. (isset($this->placeholder) ? ' placeholder="'. $this->placeholder .'"' : '') 
-				. (isset($this->disabled) ? ' disabled' : '') .'>';
+				. (isset($this->disabled) ?  ($this->disabled ? ' disabled' : '') : '') .'>';
+			return $html_string;
 			
 		}
 		
@@ -48,17 +50,51 @@
 			$input = new input;
 			$input->css_class = $input_class;
 			$input->type = $input_type;
+			return $input;
 		}
 		
-		public static function mk_input_id($input_type, $input_class, $input_id){
-			$input = new input;
+		public static function mk_input_id($input_type, $input_class, $input_id, $required, $p_holder){
+			$input = new input_elem;
 			$input->css_class = $input_class;
 			$input->type = $input_type;
 			$input->id = $input_id;
+			if($required){
+					$input->required = true;
+			}
+			$input->placeholder = $p_holder;
+			return $input;
 		}
 		
 		
 	}
+	
+	
+	//Klasse für Labels
+	class label {
+		public $id;
+		public $target_id;
+		public $value;
+		
+		public function to_html_string(){
+			return 
+				'
+				<label '. (isset($this->id) ? ' id="'. $this->id .'"' : '') .' for="'. $this->target_id .'">'. $this->value .'</label>
+				';
+		}
+		public function to_html(){
+			echo $this->to_html_string();
+		}
+		
+		public static function make_lbl($t_id, $val){
+			$label = new label;
+			$label->target_id = $t_id;
+			$label->value = $val;
+			return $label;
+		}
+		
+		
+	}
+	
 	
 
 
@@ -102,13 +138,44 @@
 		
 		public function add_content($cntnt){
 			if(isset($this->contents)){
-				array_push( $this->contents , $cntnt );
-			} else {
-				$this->contents = array($cntnt);
+				if(is_array($cntnt)){
+					foreach($cntnt as $cur_c){
+						array_push($this->content, $cur_c);
+					}
+				} else {
+					array_push( $this->contents , $cntnt);
+				}
+			} else { 
+				if(is_array($cntnt)){ 
+					$this->contents = $cntnt;
+				} else {
+					$this->contents = array($cntnt);
+				}
 			}
 		}
 		
+		public static function form_col($col_class, $input_type, $input_class, $input_id, $required, $p_holder, $label){
+			$inp_e = input_elem::mk_input_id($input_type, $input_class, $input_id, $required, $p_holder);
+			$lbl = label::make_lbl($input_id, $label); 
+			$col = div::mk_form_col($col_class, $lbl, $inp_e);
+			return $col;
+		}
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 ?>
