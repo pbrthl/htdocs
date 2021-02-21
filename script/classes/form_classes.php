@@ -106,7 +106,7 @@
 		public $css_class;
 		public $action;
 		public $contents;
-		public $method;
+		public $method = 'post';
 		
 		public function to_html_string(){
 			$html_string =

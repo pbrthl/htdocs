@@ -136,21 +136,12 @@
 		
 		//Das Formular 
 		$form = new html_form;
+		$form->action = "order.php";
 		
 		
-		/*
-		TODO
-			-Gast? -> registrieren oder einloggen --
-			- Farbe
-			- AGB Datenschutzerklärung
-			- Versandart
-			-zurück/weiter X
-			--------------------> Zahlung :)
 
-		*/
 		
-		
-		//Vorname und Nachname         ==========================               
+		//Vorname und Nachname                  
 		$first_name_column = html_form::form_col
 							('col-md-6 mb-3', 
 							'text', 
@@ -428,6 +419,30 @@
 		//formular ausgeben
 		$form->to_html();
 
+		
+		
+	}
+	
+	
+	
+	function order_successfull_message(){
+		
+		echo 
+			'
+			
+			<div class="alert alert-success" role="alert">
+				<center>
+					Vielen dank! Deine Bestellung wird bearbeitet. Wir werden Dir in Kürze eine Mail schicken. Kehre <a href="index.php" class="link">hier</a> zu unserem Shop zurück.
+				</center>
+			</div>
+			<center>
+			';
+			
+		
+			
+		echo 
+			'</center>';
+			
 		
 		
 	}

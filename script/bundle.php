@@ -9,6 +9,7 @@
 	include_once('script\classes\html_classes.php');
 	include_once('script\classes\form_classes.php');
 	include_once('script\classes\mail.php');
+	include_once('script\form_evaluation.php');
 	include_once('script\page_content.php');
 	
 ?>
