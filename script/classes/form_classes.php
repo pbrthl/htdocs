@@ -16,6 +16,7 @@
 		public $css_class;
 		public $type;
 		public $disabled = false;
+		public $placeholder;
 		
 		public function to_html_string(){
 			
@@ -24,6 +25,7 @@
 				. (isset($this->id) ? ' id="'. $this->id .'"' : '') 
 				. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '')
 				. (isset($this->type) ? ' type="'. $this->type .'"' : '') 
+				. (isset($this->placeholder) ? ' placeholder="'. $this->placeholder .'"' : '') 
 				. (isset($this->disabled) ? ' disabled' : '') .'>';
 			
 		}
