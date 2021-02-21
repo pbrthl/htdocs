@@ -9,7 +9,7 @@
 
 	
 	//PHP-Skripte und Klassen einbinden
-	include_once('script/bundle.php');
+	include_once('script\bundle.php');
 	
 	
 	html_header();

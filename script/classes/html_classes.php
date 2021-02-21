@@ -199,7 +199,7 @@
 		public $content;
 		
 		public function to_html_string(){
-			return $content;
+			return $this->content;
 		}
 		
 		public function to_html(){
@@ -311,21 +311,7 @@
 		}
 		
 		public function to_html(){
-			//echo $this->to_html_string();
-			echo 
-				'
-				<div'. (isset($this->id) ? ' id="'. $this->id .'"' : '') 
-				. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '') .'>
-				';
-				if(isset($this->content)){
-					foreach($this->content as $curr_content){
-						echo $curr_content->to_html();
-					}
-				}
-				echo 
-					'
-					</div>
-					';
+			echo $this->to_html_string();
 		}
 		
 		public function add_content($cntnt){
@@ -419,7 +405,13 @@
 	}
 	
 	
-	
+	class nav_bar extends html_object {
+		
+		public $content;
+		
+		public function to_html_string(){}
+		
+	}
 	
 	
 ?>

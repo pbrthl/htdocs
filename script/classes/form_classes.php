@@ -130,27 +130,10 @@
 		
 		public function to_html(){
 			
-			/*echo 
-				$this->to_html_string();*/
-				
-			echo
-				'
-					<form
-					' . (isset($this->id) ? ' id="'. $this->id .'"' : '')
-					. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '')
-					. (isset($this->action) ? ' action="'. $this->action .'"' : '')
-					. (isset($this->method) ? ' method="'. $this->method .'"' : '')
-					. '>
-				';
-			
-			if(isset($this->contents)){
-				foreach($this->contents as $curr_content){
-					$curr_content->to_html();
-				}
-			}
-			
 			echo 
-				'</form>';
+				$this->to_html_string();
+				
+
 		}
 		
 		
