@@ -163,9 +163,91 @@
 		
 	}
 	
+	class dd_option extends html_object {
+		
+		public $value;
+		
+		public function to_html_string(){
+			return 
+				'
+				<option>
+					'. $this->value .'
+				</option>
+				';
+		}
+		
+		public function to_html(){
+			echo 
+				$this->to_html_string();
+		}
+		
+		public static function make_option($val){
+			$option = new option;
+			$option->value = $val;
+			return $option;
+		}
+		
+	}
 	
 	
 	
+	class dropdown extends html_object {
+		
+		public $id;
+		public $options;
+		public $css_class;
+		
+		public function to_html_string(){
+			$html_string = 
+				'
+				<select'. (isset($this->css_class) ? ' class="'. $this->css_class .'"' : '' ) .' name="'. $id .'" id="'. $id .'">
+				';
+			if(isset($this->options)){
+				foreach($this->options as $c_opt){
+					$html_string .= c_opt->to_html_string;
+				}
+			}
+			$html_string .= 
+				'
+				</select>
+				';
+			
+			
+			return $html_string;
+		}
+		
+		public function to_html(){
+			echo $this->to_html_string();
+		}
+		
+		public function add_options ($os){
+			if(isset($this->options)){
+				if(is_array($os)){
+					foreach($os as $cur_o){
+						array_push($this->options, $cur_o);
+					}
+				} else {
+					array_push($this->options, $os);
+				}
+			} else {
+				if(is_array($os)){
+					$this->options = $os;
+				} else {
+					$this->options = array($os);
+				}
+			}
+		}
+		
+		public static function make_dropdown($dd_id, $opts){
+			$ddown = new dropdown;
+			$ddown->id = $dd_id;
+			$ddown->add_options(opts);
+			return $ddown;
+		}
+		
+		
+	}  
+
 	
 	
 	

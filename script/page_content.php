@@ -141,13 +141,13 @@
 		/*
 		TODO
 			-Gast? -> registrieren oder einloggen
-			-Mann/Frau/Firma
-			-Vorname, Nachname (Firma!)
-			-Email
-			-Straße, Hausnummer, weitere Angabe (zB im Hinterhaus)
-			-Ort
-			-Land
-			-Telefon
+			-Mann/Frau/Firma X
+			-Vorname, Nachname (Firma!)X
+			-Email X
+			-Straße, Hausnummer, weitere Angabe (zB im Hinterhaus) X
+			-Ort X
+			-Land 
+			-Telefon 
 			-Rechnungsadresse = Lieferadresse? => Lieferadresse
 			-zurück/weiter
 			--------------------> Zahlung :)
@@ -165,6 +165,7 @@
 							true, 
 							'Max', 
 							'Vorname*');
+							
 		$sur_name_column = html_form::form_col
 									('col-md-6 mb-3', 
 									'text', 
@@ -173,6 +174,7 @@
 									true, 
 									'Mustermann', 
 									'Nachname*');
+									
 		$name_line = div::mk_div_content
 									('form-row', 
 									array
@@ -183,95 +185,111 @@
 		
 		//email-adresse
 		
-		
-		$email_inp = input_elem::mk_input_id('email', 'form-control', 'email_input_id', true, 'max@mustermail.com');
-		$email_lbl = label::make_lbl('email_input_id', 'Mail*');
-		$mail_column = div::mk_div('col-md-12 mb-3');
 		$mail_line = div::mk_div('form-row');
-		$mail_column->add_content($email_lbl);
-		$mail_column->add_content($email_inp);
+		$mail_column = html_form::form_col
+									('col-md-12 mb-3', 
+									'email', 
+									'form-control', 
+									'email_input_id', 
+									true, 
+									'max@mustermail.com', 
+									'Email*');
+		
 		$mail_line->add_content($mail_column);
 		
 		
 		//Straße und Hausnummer
 		
+		$street_column = html_form::form_col
+									('col-8 mb-3', 
+									'text', 
+									'form-control', 
+									'street_input_id', 
+									true, 
+									'Musterstraße', 
+									'Straße*');
+									
+		$number_column = html_form::form_col
+									('col-4 mb-3', 
+									'text', 
+									'form-control', 
+									'number_input_id', 
+									true, 
+									'9a', 
+									'Hausnummer*');
+									
+		$address_line = div::mk_div_content
+											('form-row', 
+											array
+												($street_column, 
+												$number_column)); 
+									
 		
-		$address_line = div::mk_div('form-row');
-		$street_column = div::mk_div('col-8 mb-3');
-		$number_column = div::mk_div('col-4 mb-3');
-		$street_input = input_elem::mk_input_id('text', 'form-control', 'street_input_id', true, 'Musterstraße');
-		$number_input = input_elem::mk_input_id('text', 'form-control', 'number_input_id', true, '9a');
-		$street_lbl = label::make_lbl('street_input_id', 'Straße*');
-		$number_lbl = label::make_lbl('number_input_id', 'Hausnummer*');
-		
-		//zusammenfügen
-		$street_column->add_content($street_lbl);
-		$street_column->add_content($street_input);
-		$number_column->add_content($number_lbl);
-		$number_column->add_content($number_input);
-		$address_line->add_content($street_column);
-		$address_line->add_content($number_column);
+
 		
 		//Adresszusatz, Stadt, PLZ
 		
-		$city_line = div::mk_div('form-row');
-		$zstz_col = div::mk_div('col-sm-5 mb-3');
-		$city_col = div::mk_div('col-sm-4 mb-3');
-		$plz_col = div::mk_div('col-sm-3 mb-3');
+		$zstz_col = html_form::form_col
+								('col-sm-5 mb-3', 
+								'text', 
+								'form-control', 
+								'zs_input_id', 
+								false, 
+								'zB. Hinterhaus', 
+								'Adresszusatz');
+								
+		$city_col = html_form::form_col
+								('col-md-4 mb-3', 
+								'text', 
+								'form-control', 
+								'ct_input_id', 
+								true, 
+								'Musterstadt', 
+								'Stadt*');
+								
+		$plz_col = html_form::form_col
+								('col-sm-3 mb-3', 
+								'text', 
+								'form-control', 
+								'plz_input_id', 
+								true, 
+								'4242', 
+								'PLZ*');
+
+		$city_line = div::mk_div_content
+								('form-row', 
+								array
+									($zstz_col, 
+									$city_col,
+									$plz_col));		
+
+										
+		//Land und Telefon
 		
-		$zstz_input = input_elem::mk_input_id('text', 'form-control', 'zstz_i_id', false, 'zB. Hinterhaus');
-		$zstz_lbl = label::make_lbl('z_i_id', 'Adresszusatz');
-		$city_input = input_elem::mk_input_id('text', 'form-control', 'ct_i_id', true, 'Musterstadt');
-		$city_lbl = label::make_lbl('ct_i_id', 'Stadt*');
-		$plz_input = input_elem::mk_input_id('text', 'form-control', 'plz_i_id', true, '4242');
-		$plz_lbl = label::make_lbl('plz_i_id', 'Postleitzahl*');
 		
 		
-		$zstz_col->add_content($zstz_lbl);
-		$zstz_col->add_content($zstz_input);
-		$city_col->add_content($city_lbl);
-		$city_col->add_content($city_input);
-		$plz_col->add_content($plz_lbl);
-		$plz_col->add_content($plz_input);
+
 		
+
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		//Submit/ zurück Buttons 
-		
-		
-		//row und line
+		//Button Bestätigung 
 		$submit_line = div::mk_div('form-row');
 		$submit_button_column = div::mk_div('col-md-12 mb-3');
-		
-		//Der Button
 		$submit_button = button::form_submit_button();
 		$submit_button->text = 'Bestellen';
 		$submit_button->id = 'form_submit_button_id';
-		
-		//Centered element
-		//$centered_element_submit = new center;
-		
-		//zusammenbauen der Zeile
 		$submit_button_column->add_content($submit_button);
 		$submit_line->add_content($submit_button_column);
-		
-		
-		
-		
-		
-		
-		//Formular füllen
-		$form->add_content(array($name_line, $mail_line, $address_line, $submit_line));
 
-		
-		
+		//Formular füllen
+		$form->add_content
+				(array
+					($name_line, 
+					$mail_line, 
+					$address_line, 
+					$city_line, 
+					$submit_line));
+
 		
 		//formular ausgeben
 		$form->to_html();
