@@ -65,6 +65,7 @@
 	row_end();
 	row();
 		column();
+			link_seitenanfang();
 		column_end();
 	row_end();
 	container_end();

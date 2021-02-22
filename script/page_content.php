@@ -625,6 +625,15 @@ Die gesetzlichen Gewährleistungsregelungen gelten.
 			';
 	}
 	
+	function link_seitenanfang(){
+		echo 
+			'<center class="top-buffer">
+				<a href="#" class="link">zum Anfang der Seite</a>
+			</center>
+			<br/>
+			<div class="top-buffer"></div>';
+	}
+	
 	
 ?>
 
