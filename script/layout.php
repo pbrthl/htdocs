@@ -88,4 +88,14 @@
 			</div>
 			';
 	}
+	
+	function center_start(){
+		echo 
+			'<center>';
+	}
+	
+	function center_end(){
+		echo 
+			'</center>';
+	}
 ?>

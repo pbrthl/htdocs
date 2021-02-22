@@ -131,7 +131,7 @@
 		
 			$carousel = new Carousel;
 			$carousel->id = 'crsl_id';
-			$carousel->width = "90%";
+			$carousel->width = "40%";
 			$carousel->pictures = array
 									('img\tstimg\jp1.jpg', 
 									'img\tstimg\jp2.jpg', 
@@ -579,6 +579,53 @@ Die gesetzlichen Gewährleistungsregelungen gelten.
 	}
 
 
+	function beschreibung(){
+		
+		card_textblock
+				('Faltpavillon „Professional 40 mm ALU-HEX“ – elegant und stabil mit 4 Seitenteilen', 
+				'', 
+				'Hochwertiger, professioneller Faltpavillon der Extra-Klasse entwickelt für höchste Leistungsfähigkeit, 
+				lange Lebensdauer und den schnellen Einsatz. Das leichte, robuste Gestänge besteht aus modernem 6063-T5 
+				Aluminium und ist nach DIN 17611 E2 gebürstet. Für eine hohe Stabilität sind die Standbeine im ca. 40 mm 
+				breiten Sechskantprofil gefertigt und verfügen über besonders große, standsichere Fußplatten. Als 
+				Planenmaterial kommt PVC beschichtetes, ca. 400 g/m² schweres Hochleistungs-Polyester mit bandversiegelten 
+				Nähten zum Einsatz. Dieses ist zu 100% wasserdicht und bietet einen hohen UV-Schutz von 80+. Die 
+				mitgelieferten Seitenwände bieten die Möglichkeit den Faltpavillon komplett zu schließen. Integrierte 
+				Panoramafenster sorgen für ein helles, offenes Ambiente. Bei Bedarf lassen sich die Fenster durch vorhandene 
+				Rollos abdecken, so dass der Faltpavillon sicht- und lichtgeschützt ist. Dadurch ergeben sich viele 
+				Nutzungsmöglichkeiten. Je nach Größe des Faltpavillons verfügen die Seitenwände über eine oder mehrere 
+				Türen, die sich durch Reißverschlüsse schnell öffnen und schließen lassen. Dank des leichtgängigen 
+				Scherenmechanismus ist der Faltpavillon im Handumdrehen aufgestellt. Die Arretierung erfolgt über ein 
+				hochwertiges, schnelles Klicksystem. Der Faltpavillon kann in der Höhe 5-fach verstellt werden.', 
+				'100%');
+		
+	}
+
+
+	function sicherheitshinweise(){
+		echo 
+			'
+			<h5 class="card-title top-buffer">Sicherheitshinweise</h5>
+			<ul class="list-group list-group-flush">
+			  <li class="list-group-item">
+				Wind- und Schneelasten wurden für den Faltpavillon nicht getestet.
+				</li>
+			  <li class="list-group-item">
+				  Bauen Sie bitte den Faltpavillon sachgemäß auf und räumen 
+				  Sie bei leichtem Schneefall diesen unverzüglich vom Dach. 
+				  Bei stärkeren Winden, Regen und Schneefall empfehlen wir den vorübergehenden Abbau.
+			  </li>
+			  <li class="list-group-item">
+				Halten Sie das Planenmaterial von allen Hitze- und offenen Feuerquellen fern.
+			  </li>
+			  <li class="list-group-item">
+				Bitte beachten Sie die Sicherheitshinweise in der Aufbauanleitung.
+			  </li>
+			</ul>
+			';
+	}
+	
+	
 ?>
 
 

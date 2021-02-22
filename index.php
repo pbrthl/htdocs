@@ -18,11 +18,11 @@
 	
 	row();
 		column_class('-sm-6');
+			center_start();
 			pavillion_img();
-			
+			center_end();
 		column_end();
 		column_class('-sm-6');
-		
 			row();
 				column();
 					liste();
@@ -40,10 +40,8 @@
 	row();
 		column();
 		column_end();
-		column_class('col-4');
+		column_class('-12');
 			support_info();
-			//slide_show();
-			//order_form();
 		column_end();
 		column();
 		column_end();
@@ -51,25 +49,24 @@
 	row();
 		column();
 		column_end();
-		column_class('col-4');
-			
-			//slide_show();
-			//order_form();
+		column_class('-12');	
+			beschreibung();
 		column_end();
 		column();
 		column_end();
 	row_end();
 	row();
-		column();
-		column_end();
-		column_class('col-6');
-			
+		column_class('-sm-6');
 			slide_show();
-			//order_form();
 		column_end();
+		column_class('-sm-6');
+			sicherheitshinweise();
+		column_end();
+	row_end();
+	row();
 		column();
 		column_end();
-	row_end();	
+	row_end();
 	container_end();
 	html_footer();
 	
