@@ -29,30 +29,16 @@
 	
 	class Carousel extends html_object {
 		public $id = '';
-		public $target_picture_id;
 		public $width;
 		public $pictures = array();
 		public function to_html() { 
 				echo $this->to_html_string();
 		}
 		
-		public function to_html_string(){
-			
-			$optional_script = 
-				'
-					<script>
-						
-						function tausch(pic){
-							document.getElementById("'. $target_picture_id .'").setAttribute("src", pic.getAttribute("src"));
-						}
-						
-					</script>
-				';
-			
+		public function to_html_string(){		
 			$html_string =
-				'
-				'. (isset($target_picture_id) ? $optional_script : '') .'				
-				<div id="'. $this->id .'" class="carousel slide" data-ride="carousel"'. (isset($this->width) ? ' width="'. $this->width .'"' : '') .'>
+				'		
+				<div id="'. $this->id .'" class="carousel slide top-buffer" data-ride="carousel"'. (isset($this->width) ? ' width="'. $this->width .'"' : '') .'>
 				  <div class="carousel-inner">
 				';
 				$first = true;
@@ -60,7 +46,7 @@
 								$html_string .= 
 									'
 									<div class="carousel-item'. ($first ? ' active' : '' ) .'">
-										<img class="d-block w-100" src="'. $picture .'" alt="Bild '. $picture .'"'. (isset($this->target_picture_id) ? ' onclick="tausch(this)"' : '') .'>          
+										<img class="d-block w-100" src="'. $picture .'" alt="Bild '. $picture .'">          
 									</div>
 									';
 								$first = false;
@@ -282,7 +268,7 @@
 		{
 			$link = new html_link;
 			$link->id = $link_id;
-			$link->css_class = 'link' ;//'btn btn-primary';
+			$link->css_class = 'link';
 			$link->data_toggle = 'collapse';
 			$link->href = $collapse_id;
 			$link->role = 'button';

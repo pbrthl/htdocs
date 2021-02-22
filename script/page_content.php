@@ -78,10 +78,10 @@
 	
 	//Bild des Pavillions
 	
-	function pavillion_img(){
+	function pavillion_img(){	
 		$expand_control_link = html_link::collapse_control_link
-															('Mehr sehen', 
-															'Weniger sehen', 
+															('Technische Daten anzeigen', 
+															'Technische Daten verbergen', 
 															'bs_button', 
 															'bilderstrecke');
 		$pv_img = new img_card;
@@ -94,11 +94,50 @@
 				. $expand_control_link->to_html_string()
 			.'</p>
 			<div class="collapse" id="bilderstrecke">
-				<p> 
-					Beispielinhalt 
-				</p>
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<td>
+							<b>Gewicht:</b>
+						</td>
+						<td>
+							66,9 kg
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>Material:</b>
+						</td>
+						<td>
+							Aluminium, Hochleistungspolyester
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>Kartons:</b>
+						</td>
+						<td>
+							3
+						</td>
+					</tr>
+				</tbody>
+			</table>
 				</div>';
 		$pv_img->to_html();
+	}
+	
+	
+	function slide_show(){
+		
+			$carousel = new Carousel;
+			$carousel->id = 'crsl_id';
+			$carousel->width = "90%";
+			$carousel->pictures = array
+									('img\tstimg\jp1.jpg', 
+									'img\tstimg\jp2.jpg', 
+									'img\tstimg\jp3.jpg');
+			$carousel->to_html();
+		
 	}
 
 	
@@ -510,6 +549,34 @@ Die gesetzlichen Gewährleistungsregelungen gelten.
 		
 	}
 
+
+	function  support_info(){
+		
+		card_textblock
+			('Sie haben fragen?', 
+			'Wir haben Antworten.', '
+			<p>Unsere Mitarbeiter sind von Montag bis Freitag 
+			von 9:00 - 18:00 Uhr und am Samstag von 9:00 bis 
+			16:00 Uhr für Sie da und stehen Ihnen mit fachkundigem
+			Rat zur Seite.</p><p>
+			Sie erreichen uns am Besten telefonisch unter: </p><p>
+			<center>
+				<b style="color:blue;">
+					+49-40-7972446457
+				</b>
+			</center> 
+			oder auch jederzeit per Email. </p><p>
+			Wenden Sie sich vertrauensvoll an: </p><p>
+			<center>
+				<b style="color:blue;">
+					kundenservice@toolport.com
+				</b>
+			</center> </p><p>
+			Ihr TOOLPORT-Team </p>
+			', 
+			'100%');
+		
+	}
 
 
 ?>

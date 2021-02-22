@@ -45,8 +45,17 @@
 	}
 
 
-	function card_block(){
-		
+	function card_textblock($title, $subtitle, $text, $width){
+		echo 
+			'
+			<div class="card top-buffer" style="width: '. $width .';">
+			  <div class="card-body">
+				'. ($title != '' ? '<h5 class="card-title">'. $title .'</h5>' : '') .'
+				'. ($subtitle != '' ? '<h6 class="card-subtitle mb-2 text-muted">'. $subtitle .'</h6>' : '') .'
+				<p class="card-text">'. $text .'</p>
+			  </div>
+			</div>
+			';
 	}
 	
 ?>

@@ -40,14 +40,36 @@
 	row();
 		column();
 		column_end();
-		column();
+		column_class('col-4');
+			support_info();
+			//slide_show();
 			//order_form();
 		column_end();
 		column();
 		column_end();
 	row_end();
-	
-	
+	row();
+		column();
+		column_end();
+		column_class('col-4');
+			
+			//slide_show();
+			//order_form();
+		column_end();
+		column();
+		column_end();
+	row_end();
+	row();
+		column();
+		column_end();
+		column_class('col-6');
+			
+			slide_show();
+			//order_form();
+		column_end();
+		column();
+		column_end();
+	row_end();	
 	container_end();
 	html_footer();
 	
